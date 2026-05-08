@@ -1,0 +1,170 @@
+/* GC Mediai Design System - Custom Theme */
+
+:root {
+  /* Primary Blue */
+  --vp-c-brand-1: #3B82F6;
+  --vp-c-brand-2: #2563EB;
+  --vp-c-brand-3: #1D4ED8;
+  --vp-c-brand-soft: rgba(59, 130, 246, 0.14);
+
+  /* Typography */
+  --vp-font-family-base: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --vp-font-family-mono: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Layout — wider content area */
+  --vp-layout-max-width: 100vw;
+  --vp-sidebar-width: 272px;
+}
+
+/* === Markdown: collapse duplicate divider before h2 === */
+/* `---` (hr) right before `## h2` produces two lines (hr + h2's own border-top).
+   Hide the hr in that case so only h2's border shows — matches the intro page. */
+.vp-doc hr:has(+ h2) { display: none; }
+
+/* === Layout: widen content area === */
+
+/* Stretch doc container to fill more of the viewport */
+.VPDoc .container,
+.VPDoc.has-aside .container {
+  max-width: 1680px !important;
+}
+
+/* Reduce VPDoc horizontal padding (default 48px 32px → tighter) */
+@media (min-width: 960px) {
+  .VPDoc {
+    padding: 32px 32px 0 !important;
+  }
+}
+
+/* Content area takes full available width inside container */
+.VPDoc.has-aside .content-container {
+  max-width: none !important;
+}
+.VPDoc .content {
+  max-width: 100% !important;
+}
+
+/* Right outline aside — compact width with tighter spacing */
+@media (min-width: 1280px) {
+  .VPDocAside { width: 200px !important; }
+  .VPDocAsideOutline .outline-link {
+    font-size: 12px !important;
+    padding: 4px 0 !important;
+  }
+}
+
+/* Navbar container 전체 폭 사용 — VitePress 기본의 1280px 중앙 정렬을 끄고
+   본문 .VPDoc 의 정렬과 동일한 anchor(viewport 좌측)를 쓰도록 함.
+   이 설정 없이 1680 max-width로 두면 와이드 뷰포트에서 검색바가 본문 h1 좌측보다
+   더 안쪽으로 들어가 정렬이 어긋남. */
+.VPNavBar .container {
+  max-width: none !important;
+}
+
+/* Navbar 배경 분리 — has-sidebar 페이지에서:
+   - 좌측(타이틀: GC Mediai 로고 영역) → 사이드바 bg
+   - 우측(검색·메뉴) → 흰색 nav bg
+   이렇게 하면 사이드바와 시각적 연결성을 유지하면서도 우측 영역이 투명해져
+   본문 내용이 비치는 문제를 막을 수 있음. */
+.VPNavBar.has-sidebar .wrapper {
+  background-color: var(--vp-nav-bg-color, #ffffff);
+}
+.VPNavBar.has-sidebar .title {
+  /* override VitePress's @media (>=960px) `background-color: transparent` */
+  background-color: var(--vp-sidebar-bg-color, var(--vp-c-bg-alt)) !important;
+}
+
+/* 검색바 시작점을 본문 h1 시작점과 정렬:
+   본문은 sidebar + VPDoc padding(32) + container 중앙정렬 offset + content padding(32)에서 시작.
+   container max-width 1680을 넘는 와이드 뷰포트에서는 본문 컨테이너가 가운데로 모이는데,
+   navbar의 .content padding-left에도 동일한 centering 오프셋을 더해줘야 정렬이 어긋나지 않음. */
+.VPNavBar.has-sidebar .content {
+  /* 100vw는 스크롤바를 포함하지만 본문의 중앙정렬은 inner width(스크롤바 제외) 기준이라
+     중앙 오프셋 계산에서 스크롤바 폭의 절반(약 7.5px)만큼 빼서 보정. */
+  padding-left: calc(
+    var(--vp-sidebar-width) + 64px
+    + max(0px, (100vw - var(--vp-sidebar-width) - 64px - 1680px - 15px) / 2)
+  ) !important;
+}
+
+.dark {
+  --vp-c-brand-1: #60A5FA;
+  --vp-c-brand-2: #3B82F6;
+  --vp-c-brand-3: #2563EB;
+  --vp-c-brand-soft: rgba(96, 165, 250, 0.14);
+}
+
+/* Hero customization */
+.VPHero .name {
+  background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 50%, #14B8A6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Color swatches for documentation */
+.color-swatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: var(--vp-font-family-mono);
+  border: 1px solid var(--vp-c-divider);
+}
+
+.color-swatch .dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+/* Component preview boxes */
+.component-preview {
+  padding: 24px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  margin: 16px 0;
+  background: var(--vp-c-bg);
+}
+
+/* Status badge styles for docs */
+.status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge.stable { background: #DCFCE7; color: #15803D; }
+.status-badge.beta { background: #FEF9C3; color: #A16207; }
+.status-badge.draft { background: #E2E8F0; color: #475569; }
+
+.dark .status-badge.stable { background: #052E16; color: #4ADE80; }
+.dark .status-badge.beta { background: #422006; color: #FACC15; }
+.dark .status-badge.draft { background: #334155; color: #94A3B8; }
+
+/* Table improvements */
+.vp-doc table {
+  width: 100%;
+}
+
+.vp-doc table th {
+  background: var(--vp-c-bg-soft);
+  font-weight: 600;
+}
+
+/* Force emr-table to fill full width — override VitePress defaults */
+.vp-doc .emr-table {
+  width: 100% !important;
+  table-layout: fixed !important;
+  display: table !important;
+}
+
+.vp-doc .table-scroll-wrap .emr-table {
+  table-layout: auto !important;
+}
