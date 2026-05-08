@@ -67,4 +67,4 @@ GC Mediai는 다음 디자인 시스템들을 참고하여 설계되었습니다
 
 ---
 
-> 다음 문서: [시작하기](./01-getting-started.md)
+> 다음 문서: [시작하기](./getting-started.md)
