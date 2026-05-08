@@ -32,54 +32,84 @@ const green = [
   { token: 'green-50', hex: '#F0FDF4', name: '성공 배경' },
   { token: 'green-100', hex: '#DCFCE7', name: '연한 성공' },
   { token: 'green-200', hex: '#BBF7D0', name: '보조 성공' },
+  { token: 'green-300', hex: '#86EFAC', name: '연한 강조' },
+  { token: 'green-400', hex: '#4ADE80', name: '중간 강조' },
   { token: 'green-500', hex: '#22C55E', name: '성공 기본' },
   { token: 'green-600', hex: '#16A34A', name: '성공 강조' },
   { token: 'green-700', hex: '#15803D', name: '성공 액티브' },
+  { token: 'green-800', hex: '#166534', name: '성공 진하게' },
+  { token: 'green-900', hex: '#14532D', name: '성공 텍스트' },
+  { token: 'green-950', hex: '#052E16', name: '성공 다크 배경' },
 ]
 
 const red = [
   { token: 'red-50', hex: '#FEF2F2', name: '에러 배경' },
   { token: 'red-100', hex: '#FEE2E2', name: '연한 에러' },
   { token: 'red-200', hex: '#FECACA', name: '보조 에러' },
+  { token: 'red-300', hex: '#FCA5A5', name: '연한 강조' },
+  { token: 'red-400', hex: '#F87171', name: '중간 강조' },
   { token: 'red-500', hex: '#FF4242', name: '에러 기본' },
   { token: 'red-600', hex: '#DC2626', name: '에러 강조' },
   { token: 'red-700', hex: '#B91C1C', name: '에러 액티브' },
+  { token: 'red-800', hex: '#991B1B', name: '에러 진하게' },
+  { token: 'red-900', hex: '#7F1D1D', name: '에러 텍스트' },
+  { token: 'red-950', hex: '#450A0A', name: '에러 다크 배경' },
 ]
 
 const orange = [
   { token: 'orange-50', hex: '#FFF7ED', name: 'Warning 배경' },
   { token: 'orange-100', hex: '#FFEDD5', name: '연한 Warning' },
   { token: 'orange-200', hex: '#FED7AA', name: '보조 Warning' },
+  { token: 'orange-300', hex: '#FDBA74', name: '연한 강조' },
+  { token: 'orange-400', hex: '#FB923C', name: '중간 강조' },
   { token: 'orange-500', hex: '#F97316', name: 'Warning 기본 (시급한 주의)' },
   { token: 'orange-600', hex: '#EA580C', name: 'Warning 강조' },
   { token: 'orange-700', hex: '#C2410C', name: 'Warning 액티브' },
+  { token: 'orange-800', hex: '#9A3412', name: 'Warning 진하게' },
+  { token: 'orange-900', hex: '#7C2D12', name: 'Warning 텍스트' },
+  { token: 'orange-950', hex: '#431407', name: 'Warning 다크 배경' },
 ]
 
 const yellow = [
   { token: 'yellow-50', hex: '#FEFCE8', name: 'Caution 배경' },
   { token: 'yellow-100', hex: '#FEF9C3', name: '연한 Caution' },
   { token: 'yellow-200', hex: '#FEF08A', name: '보조 Caution' },
+  { token: 'yellow-300', hex: '#FCDF65', name: '연한 강조' },
+  { token: 'yellow-400', hex: '#FAD238', name: '중간 강조' },
   { token: 'yellow-500', hex: '#FACC15', name: 'Caution 기본 (인지 권장)' },
   { token: 'yellow-600', hex: '#CA9A0B', name: 'Caution 강조' },
   { token: 'yellow-700', hex: '#A87F0A', name: 'Caution 액티브 (가독)' },
+  { token: 'yellow-800', hex: '#826208', name: 'Caution 진하게' },
+  { token: 'yellow-900', hex: '#573F05', name: 'Caution 텍스트' },
+  { token: 'yellow-950', hex: '#302202', name: 'Caution 다크 배경' },
 ]
 
 const teal = [
   { token: 'teal-50', hex: '#F0FDFA', name: '정보 배경' },
   { token: 'teal-100', hex: '#CCFBF1', name: '연한 정보' },
   { token: 'teal-200', hex: '#99F6E4', name: '보조 정보' },
+  { token: 'teal-300', hex: '#5EEAD4', name: '연한 강조' },
+  { token: 'teal-400', hex: '#2DD4BF', name: '중간 강조' },
   { token: 'teal-500', hex: '#14B8A6', name: '정보 기본' },
   { token: 'teal-600', hex: '#0D9488', name: '정보 강조' },
   { token: 'teal-700', hex: '#0F766E', name: '정보 액티브' },
+  { token: 'teal-800', hex: '#115E59', name: '정보 진하게' },
+  { token: 'teal-900', hex: '#134E4A', name: '정보 텍스트' },
+  { token: 'teal-950', hex: '#042F2E', name: '정보 다크 배경' },
 ]
 
 const violet = [
   { token: 'violet-50', hex: '#F5F3FF', name: 'AI Suggest 배경' },
   { token: 'violet-100', hex: '#EDE9FE', name: '연한 AI' },
   { token: 'violet-200', hex: '#DDD6FE', name: '보조 AI' },
+  { token: 'violet-300', hex: '#C4B5FD', name: '연한 강조' },
+  { token: 'violet-400', hex: '#A78BFA', name: '중간 강조' },
   { token: 'violet-500', hex: '#8B5CF6', name: 'AI Suggest 기본' },
   { token: 'violet-600', hex: '#7C3AED', name: 'AI 강조' },
   { token: 'violet-700', hex: '#6D28D9', name: 'AI 액티브' },
+  { token: 'violet-800', hex: '#5B21B6', name: 'AI 진하게' },
+  { token: 'violet-900', hex: '#4C1D95', name: 'AI 텍스트' },
+  { token: 'violet-950', hex: '#2E1065', name: 'AI 다크 배경' },
 ]
 
 const bgTokens = [
