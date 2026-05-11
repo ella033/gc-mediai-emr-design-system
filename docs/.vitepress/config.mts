@@ -25,6 +25,7 @@ export default defineConfig({
         items: [
           { text: 'Introduction', link: '/introduction' },
           { text: 'Getting Started', link: '/getting-started' },
+          { text: 'Changelog', link: '/changelog' },
         ],
       },
       {
@@ -58,7 +59,14 @@ export default defineConfig({
           { text: 'Modal / Dialog', link: '/components/modal' },
           { text: 'Drawer', link: '/components/drawer' },
           { text: 'Table', link: '/components/table' },
-          { text: 'Data Grid', link: '/components/data-grid' },
+          {
+            text: 'Data Grid',
+            link: '/components/data-grid',
+            collapsed: false,
+            items: [
+              { text: '예시 — 실제 EMR 화면', link: '/patterns/data-grid-examples' },
+            ],
+          },
           { text: 'Toast', link: '/components/toast' },
           { text: 'Tab', link: '/components/tab' },
           { text: 'TextArea', link: '/components/textarea' },

@@ -1,6 +1,6 @@
 {
   "name": "cloud-emr-design-system",
-  "version": "1.0.0",
+  "version": "1.4.1",
   "description": "Cloud EMR Design System Documentation",
   "private": true,
   "scripts": {

@@ -51,6 +51,9 @@ import FreeTextStates from './components/FreeTextStates.vue'
 import EmrGlossary from './components/EmrGlossary.vue'
 import EmrScenarios from './components/EmrScenarios.vue'
 import EmrRoles from './components/EmrRoles.vue'
+import PrescriptionGridExample from './components/PrescriptionGridExample.vue'
+import MasterDataGridExample from './components/MasterDataGridExample.vue'
+import BillingGridExample from './components/BillingGridExample.vue'
 
 export default {
   extends: DefaultTheme,
@@ -106,5 +109,8 @@ export default {
     app.component('EmrGlossary', EmrGlossary)
     app.component('EmrScenarios', EmrScenarios)
     app.component('EmrRoles', EmrRoles)
+    app.component('PrescriptionGridExample', PrescriptionGridExample)
+    app.component('MasterDataGridExample', MasterDataGridExample)
+    app.component('BillingGridExample', BillingGridExample)
   }
 }
