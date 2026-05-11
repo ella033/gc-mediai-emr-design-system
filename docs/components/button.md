@@ -43,17 +43,19 @@
 
 ---
 
-## Size 가이드 (4가지)
+## Size 가이드 (4가지) 🆕 v1.2
+
+운영 EMR 디자인에 맞춰 전체 사이즈를 한 단계 작게 조정. 화면 정보 밀도와 조화롭게.
 
 | Size | Height | Padding | Font | Radius | 용도 |
 |------|--------|---------|------|--------|------|
 | **xSmall** | 20px | 0 8px | 11px | 4px | Data Grid 행 액션, FreeText 하단 액션, 칩 동반 |
-| **Small** | 32px | 0 12px | 12px | 5px | 테이블 인라인, 보조 영역 |
-| **Medium** | 40px | 0 16px | 13px | 6px | 기본 폼·다이얼로그 (가장 빈번) |
-| **Large** | 48px | 0 20px | 14px | 6px | 메인 CTA, 모달 푸터 |
+| **Small** | **28px** | 0 10px | 12px | 5px | 테이블 인라인, 보조 영역 |
+| **Medium** | **32px** | 0 14px | 13px | 6px | 기본 폼·다이얼로그 (가장 빈번) |
+| **Large** | **40px** | 0 18px | 14px | 6px | 메인 CTA, 모달 푸터 |
 
 ::: tip Only Icon 크기 매핑
-xSmall → 20×20 / Small → 32×32 / Medium → 40×40 / Large → 48×48 (정사각형). 아이콘 크기는 size에 따라 10/12/14/16px.
+xSmall → 20×20 / Small → 28×28 / Medium → 32×32 / Large → 40×40 (정사각형). 아이콘 크기는 size에 따라 10/12/14/16px.
 :::
 
 ---
@@ -214,12 +216,12 @@ import { Button, SplitButton } from '@gc-mediai/design-system';
 
 | Token | xs | sm | md | lg |
 |-------|----|----|----|-----|
-| `--btn-{size}-height` | 20px | 32px | 40px | 48px |
-| `--btn-{size}-padding-x` | 8px | 12px | 16px | 20px |
+| `--btn-{size}-height` | 20px | **28px** | **32px** | **40px** |
+| `--btn-{size}-padding-x` | 8px | **10px** | **14px** | **18px** |
 | `--btn-{size}-font-size` | 11px | 12px | 13px | 14px |
 | `--btn-{size}-radius` | 4px | 5px | 6px | 6px |
 | `--btn-{size}-icon-size` | 10px | 12px | 14px | 16px |
-| `--btn-{size}-gap` | 4px | 6px | 6px | 8px |
+| `--btn-{size}-gap` | 4px | 5px | 6px | 8px |
 
 공통: `--btn-font-weight: 600` / `--btn-transition: all 0.15s ease` / `--btn-pressed-scale: 0.98`
 

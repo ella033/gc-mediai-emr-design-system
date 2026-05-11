@@ -90,7 +90,7 @@ import { Select } from '@gc-mediai/design-system';
 | `loading` | `boolean` | No | `false` | 비동기 로딩 상태 |
 | `disabled` | `boolean` | No | `false` | 비활성 |
 | `error` | `string` | No | - | 에러 메시지 |
-| `size` | `'small' \| 'medium' \| 'large'` | No | `'medium'` | 크기 |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | No | `'md'` | 크기 (Input과 동일 토큰) |
 | `renderOption` | `(option) => ReactNode` | No | - | 옵션 커스텀 렌더 |
 | `noResultText` | `string` | No | `'결과 없음'` | 검색 결과 없을 때 |
 
@@ -105,6 +105,23 @@ interface Option {
   children?: Option[];  // 그룹용
 }
 ```
+
+---
+
+## Size 토큰 🆕 v1.4
+
+Input과 동일한 사이즈 시스템 — EMR 운영 기준으로 한 단계씩 축소. 같은 행에 Input과 Select가 나란히 있을 때 정확히 정렬됩니다.
+
+| Size | Height | Padding | Font Size | Chevron | 용도 |
+|------|--------|---------|-----------|---------|------|
+| `xs` 🆕 | **20px** | 0 8px | 11px | 10px | Data Grid 행 인라인 (단위 선택, 경로) |
+| `sm` | **24px** | 0 8px | 12px | 12px | 보조 입력, 좁은 패널 |
+| `md` (기본) | **28px** | 0 10px | 13px | 14px | **기본 폼 — 가장 빈번** |
+| `lg` | **32px** | 0 12px | 14px | 16px | 검색 필드, 모달 메인 |
+
+> Select와 Input은 **같은 height 시스템**을 사용하여 한 row에 섞여있어도 baseline 정렬됨. 처방 입력 그리드(약품 select + 용량 input)에서 시각 일관성.
+
+공통: `--select-radius: var(--radius-md)` (6px) / `--select-line-height: 1`
 
 ---
 

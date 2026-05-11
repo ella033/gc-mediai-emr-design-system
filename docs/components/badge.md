@@ -30,7 +30,7 @@ import { Badge } from '@cloud-emr/design-system';
 |------|------|----------|---------|------|
 | `variant` | `'solid' \| 'subtle' \| 'info'` | Yes | - | solid: 진한 배경(pill), subtle: 연한 배경(pill), info: 연한 배경(둥근 네모) |
 | `shape` | `'pill' \| 'rounded'` | No | `'pill'` | pill: 완전 둥근, rounded: 둥근 네모(radius-sm) |
-| `size` | `'xsmall' \| 'small' \| 'medium' \| 'large'` | No | `'small'` | 뱃지 크기 |
+| `size` | `'small' \| 'medium' \| 'large'` | No | `'small'` | 뱃지 크기 (높이 16/20/24px) |
 | `color` | `'blue' \| 'green' \| 'red' \| 'yellow' \| 'teal' \| 'gray'` | No | `'blue'` | 뱃지 색상 |
 | `children` | `ReactNode` | Yes | - | 뱃지 내용 |
 
@@ -58,14 +58,19 @@ import { Badge } from '@cloud-emr/design-system';
 
 ---
 
-## Size
+## Size 🆕 v1.2
 
-| Size | Font Size | Padding | 용도 |
-|------|-----------|---------|------|
-| `xsmall` | 11px | 1px 6px | 테이블 셀 내 상태 |
-| `small` | 12px | 2px 8px | 기본 상태 뱃지 |
-| `medium` | 14px | 4px 10px | 강조 상태 뱃지 |
-| `large` | 16px | 6px 12px | 카드 헤더 상태 |
+EMR 정보 밀도에 맞춰 **3종 (16 / 20 / 24px)**으로 정리. 24px 초과 사이즈는 EMR 화면에서 시각 균형을 깨므로 제거.
+
+| Size | Height | Font Size | Padding | 용도 |
+|------|--------|-----------|---------|------|
+| `small` | **16px** | 11px | **1px 6px** | 테이블 셀 내 상태, Data Grid 인라인 |
+| `medium` | **20px** | 12px | **2px 8px** | 기본 상태 뱃지, 카드 슬롯 헤더 |
+| `large` | **24px** | 13px | **4px 10px** | 강조 상태, 환자 헤더 |
+
+> Vertical padding과 `line-height: 1.2`로 텍스트 위아래 여백 확보. `box-sizing: border-box` 적용으로 외부 height(16/20/24)는 명세 그대로 유지됩니다.
+
+> **모든 variant에 동일 높이 적용** — `solid` / `subtle` / `info` 모두 size에 따라 같은 16/20/24px 높이를 가집니다. 시각적 차이는 색·라운드 형태(pill vs rounded)에서만 나옵니다.
 
 ---
 
@@ -86,9 +91,9 @@ import { Badge } from '@cloud-emr/design-system';
 
 ```tsx
 // 검사 결과에서 정상/이상 표시
-<Badge variant="subtle" color="green" size="xsmall">정상</Badge>
-<Badge variant="subtle" color="yellow" size="xsmall">주의</Badge>
-<Badge variant="solid" color="red" size="xsmall">위험</Badge>
+<Badge variant="subtle" color="green" size="small">정상</Badge>
+<Badge variant="subtle" color="yellow" size="small">주의</Badge>
+<Badge variant="solid" color="red" size="small">위험</Badge>
 ```
 
 ### 처방 상태
@@ -127,14 +132,13 @@ import { Badge } from '@cloud-emr/design-system';
 
 ### Size 토큰
 
-| Size | Font Size 토큰 | Padding 토큰 |
-|------|---------------|-------------|
-| xsmall | `--badge-xs-font-size` 11px | `--badge-xs-padding` 1px 6px |
-| small | `--badge-sm-font-size` 12px | `--badge-sm-padding` 2px 8px |
-| medium | `--badge-md-font-size` 14px | `--badge-md-padding` 4px 10px |
-| large | `--badge-lg-font-size` 16px | `--badge-lg-padding` 6px 12px |
+| Size | Height 토큰 | Font Size 토큰 | Padding 토큰 |
+|------|---------------|---------------|-------------|
+| small | `--badge-sm-height` **16px** | `--badge-sm-font-size` 11px | `--badge-sm-padding` **1px 6px** |
+| medium | `--badge-md-height` **20px** | `--badge-md-font-size` 12px | `--badge-md-padding` **2px 8px** |
+| large | `--badge-lg-height` **24px** | `--badge-lg-font-size` 13px | `--badge-lg-padding` **4px 10px** |
 
-공통: `--badge-radius: var(--radius-full)` / `--badge-font-weight: 500`
+공통: `--badge-radius: var(--radius-full)` (pill) / `var(--radius-sm)` (info-rounded) · `--badge-font-weight: 500` · `--badge-line-height: 1.2`
 
 ```css
 /* 사용 예시 */
