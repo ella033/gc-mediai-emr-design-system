@@ -228,3 +228,11 @@
   line-height: var(--typo-data-vital-leading);
   font-weight: var(--typo-data-vital-weight);
 }
+
+/* ─── Nav bar logo — GC MediAI 브랜드 마크 1.5x 확대 (24px → 36px) ─── */
+.VPNavBarTitle .title img,
+.VPImage.logo {
+  height: 36px !important;
+  max-height: 36px !important;
+  width: auto;
+}
