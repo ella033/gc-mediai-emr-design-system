@@ -10,8 +10,8 @@ export default defineConfig({
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css' }],
   ],
   themeConfig: {
-    logo: '/logo.svg',
-    siteTitle: 'GC Mediai',
+    logo: '/gc-mediai-logo.jpg',
+    siteTitle: false,   // 로고 이미지에 'GC MediAI' 텍스트 포함되어 있으므로 별도 사이트 이름 숨김
     nav: [
       { text: 'Guide', link: '/introduction' },
       { text: 'Foundation', link: '/foundation/colors' },
@@ -106,6 +106,18 @@ export default defineConfig({
     search: {
       provider: 'local',
       options: {
+        // VitePress 기본 토큰화는 영문 중심 — 한국어 검색을 위해 minisearch 옵션 보강
+        miniSearch: {
+          searchOptions: {
+            // 입력 도중에도 결과가 나오도록 prefix 매칭
+            prefix: true,
+            // 약간의 오타/한글 자모 차이 허용
+            fuzzy: 0.2,
+            // 토큰 사이 AND가 아닌 OR 검색 — 한국어 검색어가 분절되어도 결과 나옴
+            combineWith: 'OR',
+            boost: { title: 4, headings: 2, text: 1 },
+          },
+        },
         translations: {
           button: { buttonText: '검색', buttonAriaLabel: '검색' },
           modal: {
