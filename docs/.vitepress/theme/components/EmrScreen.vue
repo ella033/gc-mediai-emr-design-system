@@ -1065,9 +1065,14 @@ const quickMenuActions = [
 .p-meta { font-size: 12px; color: #64748B; flex-shrink: 0; }
 .p-status-slot { margin-left: auto; display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0; }
 
+/* v1.3.1 Badge small (height 16, padding 1px 6px, line-height 1.2) */
 .p-status-badge {
-  padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;
-  line-height: 1.4;
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 16px; padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 11px; font-weight: 600;
+  line-height: 1.2;
+  box-sizing: border-box;
 }
 .p-status-badge.progress { background: #6366F1; color: #fff; }
 .p-status-badge.hold { background: #FEF3C7; color: #92400E; }
@@ -1647,8 +1652,14 @@ const quickMenuActions = [
 .pi-value.pi-warn { color: #DC2626; font-weight: 600; }
 .pi-value.pi-danger { color: #DC2626; font-weight: 500; }
 
+/* v1.3.1 Badge small 패턴 (height 16, vertical padding + line-height 1.2) */
 .pi-chip {
-  padding: 1px 8px; border-radius: 4px; font-size: 10px; font-weight: 600;
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 16px; padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 10px; font-weight: 600;
+  line-height: 1.2;
+  box-sizing: border-box;
 }
 .pi-chip.green { background: #DCFCE7; color: #15803D; }
 .dark .pi-chip.green { background: #052E16; color: #4ADE80; }
@@ -1723,11 +1734,16 @@ const quickMenuActions = [
   padding-top: 8px; border-top: 1px solid #F1F5F9;
 }
 .dark .pi-memo-input { border-color: #1E293B; }
+/* v1.4 Input — height 28 (md 기본), inline-flex + box-sizing */
 .pi-memo-input input {
-  flex: 1; padding: 6px 10px; border: 1px solid #E2E8F0; border-radius: 6px;
-  font-size: 11.5px; outline: none; font-family: inherit;
+  flex: 1;
+  height: 28px; padding: 0 10px;
+  box-sizing: border-box;
+  border: 1px solid #E2E8F0; border-radius: 6px;
+  font-size: 12px; line-height: 1; outline: none; font-family: inherit;
   background: transparent; color: inherit;
 }
+.pi-memo-input input:focus { border-color: #3B82F6; }
 .dark .pi-memo-input input { border-color: #334155; }
 .pi-memo-input button {
   width: 28px; height: 28px; border: none; border-radius: 6px;
