@@ -16,9 +16,9 @@
 .pi-core { padding-bottom: 10px; border-bottom: 1px solid var(--color-border-default); }
 .pi-row-top { display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
 .pi-name { font-size: 17px; font-weight: 700; }
-.pi-chart-no { font-size: 11px; color: var(--color-text-tertiary); font-family: var(--font-family-mono); }
+.pi-chart-no { font-size: 11px; color: var(--color-text-tertiary); font-variant-numeric: tabular-nums; }
 .pi-row-sub { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--color-text-secondary); }
-.pi-rrn { font-family: var(--font-family-mono); font-size: 11px; }
+.pi-rrn { font-variant-numeric: tabular-nums; font-size: 11px; }
 .pi-divider { color: var(--color-text-tertiary); }
 
 /* 배지 영역 */
@@ -44,13 +44,13 @@
   font-size: 10px; font-weight: 600; color: var(--color-text-tertiary);
   min-width: 28px;
 }
-.pi-family-tel { color: var(--color-text-tertiary); font-family: var(--font-family-mono); font-size: 10px; margin-left: auto; }
+.pi-family-tel { color: var(--color-text-tertiary); font-variant-numeric: tabular-nums; font-size: 10px; margin-left: auto; }
 
 /* 예방접종 */
 .pi-vacc-list { display: flex; flex-direction: column; gap: 3px; }
 .pi-vacc-row { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #22C55E; }
 .pi-vacc-row.pending { color: var(--color-text-tertiary); }
-.pi-vacc-date { margin-left: auto; font-size: 10px; font-family: var(--font-family-mono); color: var(--color-text-tertiary); }
+.pi-vacc-date { margin-left: auto; font-size: 10px; font-variant-numeric: tabular-nums; color: var(--color-text-tertiary); }
 
 /* 메타 */
 .pi-meta-row { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--color-text-secondary); }
@@ -82,7 +82,7 @@
   white-space: nowrap;
 }
 .vt-table .c { text-align: center; }
-.vt-table .mono { font-family: var(--font-family-mono); }
+.vt-table .mono { font-variant-numeric: tabular-nums; }
 .vt-table .high { color: #DC2626; font-weight: 600; }
 .vt-table .low { color: #CA8A04; font-weight: 600; }
 .vt-note { font-size: 10px; color: var(--color-text-tertiary); }
@@ -92,7 +92,7 @@
   width: 44px; padding: 3px 4px; border: 1px solid var(--color-border-default);
   border-radius: 4px; font-size: 11px; text-align: center; outline: none;
   background: var(--color-bg-input); color: var(--color-text-primary);
-  font-family: var(--font-family-mono);
+  font-variant-numeric: tabular-nums;
 }
 .vt-input.wide { width: 60px; text-align: left; }
 .vt-input:focus { border-color: var(--input-border-focus); }

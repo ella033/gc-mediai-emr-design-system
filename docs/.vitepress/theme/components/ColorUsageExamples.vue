@@ -527,7 +527,8 @@
   background: var(--vp-c-bg);
 }
 .cu-vital-label { font-size: 11px; color: var(--vp-c-text-2); min-width: 50px; }
-.cu-vital-value { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
+/* v1.1 — data-vital 토큰 (18/25 Bold) */
+.cu-vital-value { font-size: var(--typo-data-vital-size, 18px); line-height: var(--typo-data-vital-leading, 25px); font-weight: var(--typo-data-vital-weight, 700); font-variant-numeric: tabular-nums; }
 .cu-vital-unit { font-size: 10px; color: var(--vp-c-text-3); }
 .cu-vital-range { font-size: 10px; color: var(--vp-c-text-3); margin-left: auto; }
 

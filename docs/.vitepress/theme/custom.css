@@ -7,9 +7,8 @@
   --vp-c-brand-3: #1D4ED8;
   --vp-c-brand-soft: rgba(59, 130, 246, 0.14);
 
-  /* Typography */
+  /* Typography — 모든 텍스트(국문/영문/코드/수치) Pretendard 통일. 수치 폭은 font-variant-numeric: tabular-nums */
   --vp-font-family-base: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --vp-font-family-mono: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Layout — wider content area */
   --vp-layout-max-width: 100vw;
@@ -110,7 +109,7 @@
   padding: 6px 12px;
   border-radius: 8px;
   font-size: 13px;
-  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
   border: 1px solid var(--vp-c-divider);
 }
 
@@ -167,4 +166,65 @@
 
 .vp-doc .table-scroll-wrap .emr-table {
   table-layout: auto !important;
+}
+
+/* ─── Typography v1.1 tokens (mirror of app/src/tokens/tokens.css) ─── */
+:root {
+  /* Body Dense */
+  --typo-body1-dense-size: 15px;
+  --typo-body1-dense-leading: 21px;
+  --typo-body1-dense-weight: 400;
+
+  --typo-body1-dense-medium-size: 15px;
+  --typo-body1-dense-medium-leading: 21px;
+  --typo-body1-dense-medium-weight: 500;
+
+  /* Data */
+  --typo-data-table-size: 14px;
+  --typo-data-table-leading: 20px;
+  --typo-data-table-weight: 400;
+
+  --typo-data-table-bold-size: 14px;
+  --typo-data-table-bold-leading: 20px;
+  --typo-data-table-bold-weight: 700;
+
+  --typo-data-vital-size: 18px;
+  --typo-data-vital-leading: 25px;
+  --typo-data-vital-weight: 700;
+}
+
+/* Utility classes — v1.1 */
+.text-body1-dense {
+  font-family: var(--vp-font-family-base);
+  font-size: var(--typo-body1-dense-size);
+  line-height: var(--typo-body1-dense-leading);
+  font-weight: var(--typo-body1-dense-weight);
+  letter-spacing: 0;
+}
+.text-body1-dense-medium {
+  font-family: var(--vp-font-family-base);
+  font-size: var(--typo-body1-dense-medium-size);
+  line-height: var(--typo-body1-dense-medium-leading);
+  font-weight: var(--typo-body1-dense-medium-weight);
+  letter-spacing: 0;
+}
+.text-data-table, .text-data-table-bold, .text-data-vital {
+  font-family: var(--vp-font-family-base);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+.text-data-table {
+  font-size: var(--typo-data-table-size);
+  line-height: var(--typo-data-table-leading);
+  font-weight: var(--typo-data-table-weight);
+}
+.text-data-table-bold {
+  font-size: var(--typo-data-table-bold-size);
+  line-height: var(--typo-data-table-bold-leading);
+  font-weight: var(--typo-data-table-bold-weight);
+}
+.text-data-vital {
+  font-size: var(--typo-data-vital-size);
+  line-height: var(--typo-data-vital-leading);
+  font-weight: var(--typo-data-vital-weight);
 }

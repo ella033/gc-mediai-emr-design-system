@@ -75,8 +75,8 @@
   --ceds-teal-700: #0F766E;
 
   /* ─── Typography ─── */
+  /* 모든 텍스트(국문/영문/코드/수치)는 Pretendard로 통일. 수치 폭 고정은 font-variant-numeric: tabular-nums로 처리 */
   --ceds-font-family-base: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --ceds-font-family-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
 
   --ceds-font-weight-regular: 400;
   --ceds-font-weight-medium: 500;
@@ -335,7 +335,6 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--ceds-font-family-base)'],
-        mono: ['var(--ceds-font-family-mono)'],
       },
     },
   },

@@ -264,7 +264,7 @@ const frameX = computed(() => frameDay.value !== null ? dayToX(frameDay.value) :
 .ct-nav { display: flex; align-items: center; gap: 6px; }
 .ct-nav-btn { width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--vp-c-divider); display: flex; align-items: center; justify-content: center; background: var(--vp-c-bg); cursor: pointer; color: var(--vp-c-text-2); }
 .ct-nav-btn:hover { background: var(--vp-c-bg-soft); }
-.ct-nav-info { font-size: 11px; color: var(--vp-c-text-2); font-family: var(--vp-font-family-mono); }
+.ct-nav-info { font-size: 11px; color: var(--vp-c-text-2); font-variant-numeric: tabular-nums; }
 
 .ct-timeline { border: 1px solid var(--vp-c-divider); border-radius: 12px; background: var(--vp-c-bg); overflow: hidden; }
 .ct-axis-row { display: flex; border-bottom: 1px solid var(--vp-c-divider); }

@@ -42,9 +42,8 @@ Layer 3: Component Tokens   → 컴포넌트별 상태 (btn-primary-bg-hover 등
   --teal-50: #F0FDFA;   --teal-100: #CCFBF1;  --teal-200: #99F6E4;
   --teal-500: #14B8A6;  --teal-600: #0D9488;  --teal-700: #0F766E;
 
-  /* Typography */
+  /* Typography — 모든 텍스트(국문/영문/코드/수치) Pretendard 통일. 수치 폭은 font-variant-numeric: tabular-nums */
   --font-family-base: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-family-mono: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
@@ -497,7 +496,6 @@ Layer 3: Component Tokens   → 컴포넌트별 상태 (btn-primary-bg-hover 등
   --table-text-header: var(--gray-700);
   --table-text-name: var(--gray-900);
   --table-text-dim: var(--gray-400);
-  --table-text-mono: var(--gray-600);
 
   --table-val-high: #DC2626;
   --table-val-low: #A16207;
@@ -738,7 +736,6 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-family-base)'],
-        mono: ['var(--font-family-mono)'],
       },
     },
   },

@@ -263,8 +263,8 @@ export default function ChartPage() {
                     <table className="rx-table">
                       <thead><tr><th>약품명</th><th className="c">용량</th><th className="c">횟수</th><th className="c">일수</th><th className="c">경로</th><th></th></tr></thead>
                       <tbody>
-                        <tr><td className="fw">타이레놀 500mg</td><td className="c mono">1T</td><td className="c mono">3회</td><td className="c mono">3일</td><td className="c">경구</td><td className="c"><button className="dx-remove"><Icon name="close" size={10} /></button></td></tr>
-                        <tr><td className="fw">클로르페니라민 4mg</td><td className="c mono">1T</td><td className="c mono">2회</td><td className="c mono">3일</td><td className="c">경구</td><td className="c"><button className="dx-remove"><Icon name="close" size={10} /></button></td></tr>
+                        <tr><td className="fw text-body1-dense-medium">타이레놀 500mg</td><td className="c text-data-table">1T</td><td className="c text-data-table">3회</td><td className="c text-data-table">3일</td><td className="c">경구</td><td className="c"><button className="dx-remove"><Icon name="close" size={10} /></button></td></tr>
+                        <tr><td className="fw text-body1-dense-medium">클로르페니라민 4mg</td><td className="c text-data-table">1T</td><td className="c text-data-table">2회</td><td className="c text-data-table">3일</td><td className="c">경구</td><td className="c"><button className="dx-remove"><Icon name="close" size={10} /></button></td></tr>
                       </tbody>
                     </table>
                     <button className="text-btn"><Icon name="plus" size={12} /> 약품 추가</button>
@@ -347,9 +347,9 @@ export default function ChartPage() {
                   <table className="rx-table">
                     <thead><tr><th>항목</th><th className="c">결과</th><th className="c">판정</th></tr></thead>
                     <tbody>
-                      <tr><td>WBC</td><td className="c mono" style={{color:'#DC2626',fontWeight:600}}>11.2</td><td className="c"><Badge variant="solid" color="red" size="xsmall">H</Badge></td></tr>
-                      <tr><td>RBC</td><td className="c mono">4.85</td><td className="c"><Badge variant="solid" color="green" size="xsmall">N</Badge></td></tr>
-                      <tr><td>Platelet</td><td className="c mono" style={{color:'#CA8A04',fontWeight:600}}>135</td><td className="c"><Badge variant="solid" color="yellow" size="xsmall">L</Badge></td></tr>
+                      <tr><td>WBC</td><td className="c text-data-table-bold" style={{color:'#DC2626'}}>11.2</td><td className="c"><Badge variant="solid" color="red" size="xsmall">H</Badge></td></tr>
+                      <tr><td>RBC</td><td className="c text-data-table">4.85</td><td className="c"><Badge variant="solid" color="green" size="xsmall">N</Badge></td></tr>
+                      <tr><td>Platelet</td><td className="c text-data-table-bold" style={{color:'#CA8A04'}}>135</td><td className="c"><Badge variant="solid" color="yellow" size="xsmall">L</Badge></td></tr>
                     </tbody>
                   </table>
                 </Card>
@@ -398,9 +398,9 @@ export default function ChartPage() {
                   <table className="rx-table">
                     <thead><tr><th>항목</th><th className="c">금액</th></tr></thead>
                     <tbody>
-                      <tr><td>초진 진찰료</td><td className="c mono">16,800</td></tr>
-                      <tr><td>약제비</td><td className="c mono">5,550</td></tr>
-                      <tr><td className="fw">합계</td><td className="c mono fw">22,350</td></tr>
+                      <tr><td>초진 진찰료</td><td className="c text-data-table">16,800</td></tr>
+                      <tr><td>약제비</td><td className="c text-data-table">5,550</td></tr>
+                      <tr><td className="fw">합계</td><td className="c text-data-table-bold">22,350</td></tr>
                     </tbody>
                   </table>
                 </Card>
@@ -419,7 +419,7 @@ export default function ChartPage() {
                           <td className="fw">{p.name}</td>
                           <td>{p.dept}</td>
                           <td className="c"><Badge variant="subtle" color={statusConfig[p.status].color} size="xsmall">{statusConfig[p.status].label}</Badge></td>
-                          <td className="c mono">{p.time}</td>
+                          <td className="c text-data-table">{p.time}</td>
                         </tr>
                       ))}
                     </tbody>

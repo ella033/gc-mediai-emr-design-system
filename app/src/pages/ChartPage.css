@@ -78,7 +78,7 @@
 .patient-name { display: block; font-size: 13px; font-weight: 600; }
 .patient-meta { display: block; font-size: 10px; color: var(--color-text-tertiary); }
 .patient-right { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
-.patient-time { font-size: 10px; color: var(--color-text-tertiary); font-family: var(--font-family-mono); }
+.patient-time { font-size: 10px; color: var(--color-text-tertiary); font-variant-numeric: tabular-nums; }
 
 /* Main Content */
 .main-content { flex: 1; overflow-y: auto; padding: 8px; }
@@ -108,7 +108,7 @@
 .thread-card:hover { background: var(--color-bg-card-hover); }
 .thread-card.current { border-color: #3B82F6; background: rgba(59,130,246,0.04); }
 .thread-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-.thread-date { font-size: 12px; font-weight: 700; font-family: var(--font-family-mono); }
+.thread-date { font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .thread-body { display: flex; flex-direction: column; gap: 3px; }
 .thread-row { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--color-text-secondary); }
 .tl { font-size: 10px; font-weight: 600; color: var(--color-text-tertiary); min-width: 24px; }
@@ -139,7 +139,7 @@
 .rx-table td { padding: 6px; border-bottom: 1px solid var(--color-border-default); }
 .rx-table .c { text-align: center; }
 .rx-table .fw { font-weight: 500; }
-.rx-table .mono { font-family: var(--font-family-mono); }
+.rx-table .mono { font-variant-numeric: tabular-nums; }
 .row-active { background: rgba(59,130,246,0.08); }
 
 /* SOAP */
@@ -191,7 +191,7 @@
 .vital-mini { display: flex; flex-direction: column; gap: 6px; }
 .vital-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
 .vital-label { font-weight: 600; color: var(--color-text-tertiary); min-width: 32px; font-size: 11px; }
-.vital-val { font-family: var(--font-family-mono); font-weight: 600; }
+.vital-val { font-variant-numeric: tabular-nums; font-weight: 600; }
 .vital-val.high { color: #DC2626; }
 .vital-trend { font-weight: 700; font-size: 14px; }
 .vital-trend.up { color: #DC2626; }
@@ -219,7 +219,7 @@
 .schedule-mini { display: flex; flex-direction: column; gap: 4px; }
 .sched-row { display: flex; align-items: center; gap: 8px; padding: 5px 6px; border-radius: 6px; font-size: 12px; }
 .sched-row.current { background: rgba(59,130,246,0.08); }
-.sched-time { font-family: var(--font-family-mono); font-weight: 600; min-width: 36px; font-size: 11px; }
+.sched-time { font-variant-numeric: tabular-nums; font-weight: 600; min-width: 36px; font-size: 11px; }
 
 /* Quick Panel */
 .quick-panel {

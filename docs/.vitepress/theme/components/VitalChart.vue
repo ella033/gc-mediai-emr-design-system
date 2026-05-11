@@ -115,8 +115,8 @@ const drugMarkerX = x(3) // 03.22 아무로디핀 증량 시점
 .vc-point { cursor: pointer; transition: r 0.1s; }
 .vc-point:hover { r: 6; }
 
-.vc-y-label { font-size: 10px; fill: var(--vp-c-text-3); font-family: var(--vp-font-family-mono); }
-.vc-x-label { font-size: 9px; fill: var(--vp-c-text-3); font-family: var(--vp-font-family-mono); }
+.vc-y-label { font-size: 10px; fill: var(--vp-c-text-3); font-variant-numeric: tabular-nums; }
+.vc-x-label { font-size: 9px; fill: var(--vp-c-text-3); font-variant-numeric: tabular-nums; }
 .vc-band-label { font-size: 9px; fill: #22C55E; font-weight: 600; }
 .vc-marker-label { font-size: 8px; fill: #A16207; font-weight: 600; }
 

@@ -71,7 +71,7 @@ const totalPages = 12
 .pg-num.active { background: #3B82F6; color: #fff; }
 
 .pg-ellipsis { font-size: 13px; color: var(--vp-c-text-3); padding: 0 4px; }
-.pg-current { font-size: 13px; font-weight: 500; color: var(--vp-c-text-1); padding: 0 8px; font-family: var(--vp-font-family-mono); }
+.pg-current { font-size: 13px; font-weight: 500; color: var(--vp-c-text-1); padding: 0 8px; font-variant-numeric: tabular-nums; }
 .pg-info { font-size: 11px; color: var(--vp-c-text-3); margin-top: 8px; }
 
 .pg-bar.compact { gap: 8px; }

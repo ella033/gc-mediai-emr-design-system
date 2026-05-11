@@ -167,6 +167,6 @@ const withAction = {
   color: var(--vp-c-text-3);
   text-align: center;
   margin-top: 4px;
-  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
 }
 </style>

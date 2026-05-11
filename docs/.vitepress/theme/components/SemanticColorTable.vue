@@ -144,7 +144,7 @@ async function copy(val) {
 
 .token-name {
   font-size: 11px;
-  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
   color: var(--vp-c-text-1);
   background: var(--vp-c-bg-alt);
   padding: 2px 6px;
@@ -186,7 +186,7 @@ async function copy(val) {
 
 .hex-label {
   font-size: 11px;
-  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
   color: var(--vp-c-text-2);
 }
 </style>
