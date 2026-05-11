@@ -280,11 +280,11 @@ function isSelected(id) { return selectedRows.value.includes(id) }
           <tbody>
             <tr>
               <td><span class="drug-name">타이레놀 500mg</span><span class="drug-code">TYLENOL</span></td>
-              <td class="center mono editable">1T</td>
-              <td class="center mono editable">3회</td>
-              <td class="center mono editable">3일</td>
+              <td class="center mono editable text-data-table">1T</td>
+              <td class="center mono editable text-data-table">3회</td>
+              <td class="center mono editable text-data-table">3일</td>
               <td class="center">경구</td>
-              <td class="center mono">9T</td>
+              <td class="center mono text-data-table">9T</td>
               <td class="center"><span class="row-delete">✕</span></td>
             </tr>
             <tr>
@@ -298,11 +298,11 @@ function isSelected(id) { return selectedRows.value.includes(id) }
             </tr>
             <tr>
               <td><span class="drug-name">덱스트로메토르판 15mg</span><span class="drug-code">DEXTROMETHORPHAN</span></td>
-              <td class="center mono editable">1T</td>
-              <td class="center mono editable">3회</td>
-              <td class="center mono editable">3일</td>
+              <td class="center mono editable text-data-table">1T</td>
+              <td class="center mono editable text-data-table">3회</td>
+              <td class="center mono editable text-data-table">3일</td>
               <td class="center">경구</td>
-              <td class="center mono">9T</td>
+              <td class="center mono text-data-table">9T</td>
               <td class="center"><span class="row-delete">✕</span></td>
             </tr>
           </tbody>
@@ -867,25 +867,43 @@ function isSelected(id) { return selectedRows.value.includes(id) }
 
 /* Horizontal scroll wrapper */
 .table-scroll-wrap {
-  overflow-x: auto; border-radius: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-radius: 12px;
   outline: 1px solid var(--vp-c-divider); outline-offset: -1px;
+  padding: 4px 0;   /* breathing room so sticky-col shadow + badges don't get clipped */
+  background: var(--vp-c-bg);
 }
 .table-scroll-wrap .emr-table {
-  min-width: 900px; outline: none; border-radius: 0;
+  min-width: 1100px; outline: none; border-radius: 0;
 }
-.wide-table th, .wide-table td { white-space: nowrap; }
+
+/* Wide-table — 가로스크롤 전용 행 높이/여백 */
+.wide-table th, .wide-table td {
+  white-space: nowrap;
+  padding: 14px 18px;          /* 기본 10x12 보다 넉넉 — 두 번째 이미지 톤과 동일 */
+  vertical-align: middle;
+}
+.wide-table thead th {
+  padding: 14px 18px;
+  font-size: 13px;
+}
+.wide-table tbody td { font-size: 14px; }
+.wide-table .badge { padding: 4px 10px; font-size: 12px; }   /* badge도 살짝 키워 잘리지 않게 */
 
 /* Sticky first column */
 .sticky-col {
   position: sticky; left: 0; z-index: 2;
-  background: var(--vp-c-bg-soft) !important;
-  box-shadow: 2px 0 4px rgba(0,0,0,0.06);
+  background: var(--vp-c-bg) !important;
+  box-shadow: 4px 0 6px -2px rgba(0,0,0,0.06);
 }
 thead .sticky-col { background: var(--vp-c-bg-soft) !important; z-index: 3; }
+.wide-table tbody tr:hover .sticky-col { background: var(--vp-c-bg-soft) !important; }
 
 .scroll-hint {
   text-align: center; font-size: 11px; color: var(--vp-c-text-3);
-  padding: 6px 0; font-style: italic;
+  padding: 10px 0 6px;          /* 위아래 여유 */
+  font-style: italic;
 }
 
 /* Checkbox / action columns */
@@ -900,7 +918,7 @@ thead .sticky-col { background: var(--vp-c-bg-soft) !important; z-index: 3; }
 /* Alignment */
 .center { text-align: center !important; }
 .right { text-align: right !important; }
-.mono { font-family: var(--vp-font-family-mono); font-variant-numeric: tabular-nums; }
+.mono { font-variant-numeric: tabular-nums; font-variant-numeric: tabular-nums; }
 .dim { color: var(--vp-c-text-3) !important; }
 
 /* Sortable */
@@ -911,7 +929,8 @@ thead .sticky-col { background: var(--vp-c-bg-soft) !important; z-index: 3; }
 .cell-name { font-weight: 600; color: var(--vp-c-text-1) !important; }
 .inline-icon { font-size: 11px; }
 .drug-name { display: block; font-weight: 500; color: var(--vp-c-text-1); }
-.drug-code { display: block; font-size: 10px; color: var(--vp-c-text-3); font-family: var(--vp-font-family-mono); }
+.drug-name { font-family: var(--vp-font-family-base); font-size: var(--typo-body1-dense-size, 15px); line-height: var(--typo-body1-dense-leading, 21px); font-weight: var(--typo-body1-dense-medium-weight, 500); }
+.drug-code { display: block; font-size: 10px; color: var(--vp-c-text-3); font-variant-numeric: tabular-nums; }
 .editable {
   background: rgba(59,130,246,0.05); border-radius: 4px; cursor: text;
   border: 1px dashed rgba(59,130,246,0.2);
@@ -1048,7 +1067,7 @@ thead .sticky-col { background: var(--vp-c-bg-soft) !important; z-index: 3; }
   display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
 }
 .sub-title { font-size: 14px; font-weight: 600; color: var(--vp-c-text-1); }
-.sub-date { font-size: 12px; color: var(--vp-c-text-3); font-family: var(--vp-font-family-mono); }
+.sub-date { font-size: 12px; color: var(--vp-c-text-3); font-variant-numeric: tabular-nums; }
 .sub-label { font-size: 13px; font-weight: 600; color: var(--vp-c-text-2); margin-bottom: 8px; }
 
 /* Legend */

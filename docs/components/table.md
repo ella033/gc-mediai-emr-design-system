@@ -73,7 +73,7 @@ const columns = [
 | `width` | `number \| string` | 컬럼 너비 |
 | `align` | `'left' \| 'center' \| 'right'` | 정렬 |
 | `sortable` | `boolean` | 개별 컬럼 정렬 |
-| `mono` | `boolean` | 모노스페이스 서체 |
+| `mono` | `boolean` | 수치 폭 고정 (`font-variant-numeric: tabular-nums`) |
 | `render` | `(value, row) => ReactNode` | 커스텀 렌더러 |
 
 ---

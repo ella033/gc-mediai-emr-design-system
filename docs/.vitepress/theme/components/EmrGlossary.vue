@@ -285,7 +285,7 @@ function searchRelated(term) {
 }
 .emr-glossary__abbr {
   font-size: 10px;
-  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
   color: var(--vp-c-brand-1);
   background: var(--vp-c-brand-soft);
   padding: 2px 6px;

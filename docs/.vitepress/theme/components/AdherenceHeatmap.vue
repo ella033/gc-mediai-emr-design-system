@@ -68,7 +68,7 @@ function adherenceRate(days) {
 .ah-month:last-of-type { margin-bottom: 0; }
 .ah-month-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
 .ah-month-name { font-size: 13px; font-weight: 600; color: var(--vp-c-text-1); }
-.ah-month-rate { font-size: 12px; font-weight: 600; color: #3B82F6; font-family: var(--vp-font-family-mono); }
+.ah-month-rate { font-size: 12px; font-weight: 600; color: #3B82F6; font-variant-numeric: tabular-nums; }
 
 .ah-grid {
   display: flex; gap: 3px; flex-wrap: wrap;

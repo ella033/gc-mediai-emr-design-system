@@ -349,7 +349,8 @@ const labs = [
 .csw-vital-cell.csw-vital-low { background: rgba(245,158,11,0.06); }
 .csw-vital-label { font-size: 10px; color: var(--vp-c-text-2); margin-bottom: 2px; }
 .csw-vital-value { display: flex; align-items: baseline; gap: 4px; }
-.csw-vital-num { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--vp-c-text-1); }
+/* v1.1 — data-vital 토큰 (18/25 Bold) */
+.csw-vital-num { font-size: var(--typo-data-vital-size, 18px); line-height: var(--typo-data-vital-leading, 25px); font-weight: var(--typo-data-vital-weight, 700); font-variant-numeric: tabular-nums; color: var(--vp-c-text-1); }
 .csw-vital-high .csw-vital-num { color: #DC2626; }
 .csw-vital-low .csw-vital-num { color: #D97706; }
 .csw-vital-unit { font-size: 10px; color: var(--vp-c-text-3); }

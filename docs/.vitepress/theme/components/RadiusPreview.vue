@@ -87,13 +87,13 @@ async function copy(val) {
 
 .radius-token {
   font-size: 11px;
-  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
   color: var(--vp-c-text-1);
 }
 
 .radius-value {
   font-size: 11px;
-  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
   color: var(--vp-c-text-2);
 }
 

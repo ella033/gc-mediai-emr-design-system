@@ -151,7 +151,7 @@ P: 대증치료 처방, 3일 후 f/u.</textarea>
 }
 .ta-input.auto-height { min-height: 100px; height: auto; }
 
-.ta-counter { font-size: 11px; color: var(--vp-c-text-3); text-align: right; margin-top: 4px; font-family: var(--vp-font-family-mono); }
+.ta-counter { font-size: 11px; color: var(--vp-c-text-3); text-align: right; margin-top: 4px; font-variant-numeric: tabular-nums; }
 .ta-error-msg { font-size: 11px; color: var(--input-error-msg-color, #DC2626); margin-top: 4px; }
 .dark .ta-error-msg { color: var(--input-error-msg-color, #F87171); }
 .ta-cursor { position: absolute; top: 36px; left: 12px; width: 2px; height: 16px; background: #3B82F6; animation: blink 1s infinite; }

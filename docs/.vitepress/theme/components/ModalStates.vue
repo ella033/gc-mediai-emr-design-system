@@ -170,32 +170,32 @@ const cases = [
               <tbody>
                 <tr>
                   <td>WBC</td>
-                  <td class="mono">11.2 x10³/μL</td>
-                  <td class="mono dim">4.0 - 10.0</td>
+                  <td class="mono text-data-table-bold" style="color:#DC2626">11.2 x10³/μL</td>
+                  <td class="mono dim text-data-table">4.0 - 10.0</td>
                   <td><span class="result-badge high">H</span></td>
                 </tr>
                 <tr>
                   <td>RBC</td>
-                  <td class="mono">4.85 x10⁶/μL</td>
-                  <td class="mono dim">4.2 - 5.8</td>
+                  <td class="mono text-data-table">4.85 x10⁶/μL</td>
+                  <td class="mono dim text-data-table">4.2 - 5.8</td>
                   <td><span class="result-badge normal">N</span></td>
                 </tr>
                 <tr>
                   <td>Hemoglobin</td>
-                  <td class="mono">14.2 g/dL</td>
-                  <td class="mono dim">13.0 - 17.0</td>
+                  <td class="mono text-data-table">14.2 g/dL</td>
+                  <td class="mono dim text-data-table">13.0 - 17.0</td>
                   <td><span class="result-badge normal">N</span></td>
                 </tr>
                 <tr>
                   <td>Platelet</td>
-                  <td class="mono">135 x10³/μL</td>
-                  <td class="mono dim">150 - 400</td>
+                  <td class="mono text-data-table-bold" style="color:#D97706">135 x10³/μL</td>
+                  <td class="mono dim text-data-table">150 - 400</td>
                   <td><span class="result-badge low">L</span></td>
                 </tr>
                 <tr>
                   <td>CRP</td>
-                  <td class="mono">3.8 mg/dL</td>
-                  <td class="mono dim">0.0 - 0.5</td>
+                  <td class="mono text-data-table-bold" style="color:#DC2626">3.8 mg/dL</td>
+                  <td class="mono dim text-data-table">0.0 - 0.5</td>
                   <td><span class="result-badge high">H</span></td>
                 </tr>
               </tbody>
@@ -438,9 +438,9 @@ const cases = [
   background: var(--vp-c-bg-soft); border-radius: 8px; padding: 12px; margin-top: 4px;
 }
 .error-code-title { font-size: 11px; font-weight: 600; color: var(--vp-c-text-3); margin-bottom: 4px; }
-.error-code { font-size: 13px; font-family: var(--vp-font-family-mono); color: #DC2626; display: block; margin-bottom: 6px; }
+.error-code { font-size: 13px; font-variant-numeric: tabular-nums; color: #DC2626; display: block; margin-bottom: 6px; }
 .dark .error-code { color: #F87171; }
-.error-code-desc { font-size: 11px; color: var(--vp-c-text-3); font-family: var(--vp-font-family-mono); }
+.error-code-desc { font-size: 11px; color: var(--vp-c-text-3); font-variant-numeric: tabular-nums; }
 
 /* Table */
 .modal-table { width: 100%; border-collapse: collapse; font-size: 12px; }
@@ -449,7 +449,7 @@ const cases = [
   background: var(--vp-c-bg-soft); border-bottom: 2px solid var(--vp-c-divider);
 }
 .modal-table td { padding: 8px 10px; border-bottom: 1px solid var(--vp-c-divider); color: var(--vp-c-text-2); }
-.modal-table .mono { font-family: var(--vp-font-family-mono); }
+.modal-table .mono { font-variant-numeric: tabular-nums; }
 .modal-table .dim { color: var(--vp-c-text-3); }
 
 .result-badge {
@@ -477,7 +477,7 @@ const cases = [
 
 /* Delete */
 .delete-target { background: var(--vp-c-bg-soft); border-radius: 8px; padding: 10px 14px; }
-.delete-item { font-size: 12px; color: var(--vp-c-text-2); padding: 3px 0; font-family: var(--vp-font-family-mono); }
+.delete-item { font-size: 12px; color: var(--vp-c-text-2); padding: 3px 0; font-variant-numeric: tabular-nums; }
 
 /* Form */
 .form-group { margin-bottom: 12px; }

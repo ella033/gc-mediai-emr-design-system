@@ -276,7 +276,7 @@ function moduleTooltip(icon) {
 .size-chip {
   padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600;
   cursor: pointer; background: var(--vp-c-bg-soft); color: var(--vp-c-text-3);
-  font-family: var(--vp-font-family-mono); transition: all 0.15s;
+  font-variant-numeric: tabular-nums; transition: all 0.15s;
 }
 .size-chip.active { background: var(--vp-c-text-1); color: var(--vp-c-bg); }
 
@@ -308,7 +308,7 @@ function moduleTooltip(icon) {
 .dark .icon-img { filter: invert(1); }
 
 .icon-name {
-  font-size: 10px; font-family: var(--vp-font-family-mono);
+  font-size: 10px; font-variant-numeric: tabular-nums;
   color: var(--vp-c-text-2); text-align: center;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   max-width: 100%;

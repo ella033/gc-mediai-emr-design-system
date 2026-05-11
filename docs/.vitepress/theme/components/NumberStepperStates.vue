@@ -147,7 +147,7 @@ function clamp(v, min, max) { return Math.min(Math.max(v, min), max) }
 .stepper-btn.disabled-btn:hover { background: var(--vp-c-bg-soft); }
 
 .stepper-value {
-  font-family: var(--vp-font-family-mono); font-weight: 600;
+  font-variant-numeric: tabular-nums; font-weight: 600;
   text-align: center; color: var(--vp-c-text-1);
   background: var(--vp-c-bg); min-width: 40px;
 }

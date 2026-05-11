@@ -132,7 +132,7 @@ async function copyColor(hex) {
 
 .swatch-hex {
   font-size: 11px;
-  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
   color: var(--vp-c-text-2);
 }
 

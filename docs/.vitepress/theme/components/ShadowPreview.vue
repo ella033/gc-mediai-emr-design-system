@@ -51,7 +51,7 @@ const props = defineProps({
 
 .shadow-token {
   font-size: 12px;
-  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
   color: var(--vp-c-text-1);
 }
 

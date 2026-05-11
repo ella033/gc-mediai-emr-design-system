@@ -35,6 +35,6 @@ function onMove(e) {
 .axis-label {
   position: absolute; top: 4px; left: 4px;
   font-size: 9px; font-weight: 600; color: var(--vp-c-text-3);
-  white-space: nowrap; font-family: var(--vp-font-family-mono);
+  white-space: nowrap; font-variant-numeric: tabular-nums;
 }
 </style>

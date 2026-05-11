@@ -17,9 +17,41 @@
   --yellow-50: #FEFCE8; --yellow-100: #FEF9C3; --yellow-500: #EAB308; --yellow-600: #CA8A04;
   --teal-50: #F0FDFA; --teal-100: #CCFBF1; --teal-500: #14B8A6; --teal-600: #0D9488;
 
-  /* Typography */
+  /* Typography — 모든 텍스트(국문/영문/코드/수치) Pretendard 통일. 수치 폭은 font-variant-numeric: tabular-nums */
   --font-family-base: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-family-mono: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ───────────────────────────────────────────
+     Typography v1.1 — Body Dense (NEW)
+     한국어 고밀도 본문 (테이블 행, 처방 셀, 진단명)
+     ─────────────────────────────────────────── */
+  --typo-body1-dense-size: 15px;
+  --typo-body1-dense-leading: 21px;
+  --typo-body1-dense-weight: 400;
+  --typo-body1-dense-tracking: 0;
+
+  --typo-body1-dense-medium-size: 15px;
+  --typo-body1-dense-medium-leading: 21px;
+  --typo-body1-dense-medium-weight: 500;
+  --typo-body1-dense-medium-tracking: 0;
+
+  /* ───────────────────────────────────────────
+     Typography v1.1 — Data Category (NEW)
+     tabular-nums 적용. 자릿수 정렬이 필요한 처방/바이탈/금액
+     ─────────────────────────────────────────── */
+  --typo-data-table-size: 14px;
+  --typo-data-table-leading: 20px;
+  --typo-data-table-weight: 400;
+  --typo-data-table-tracking: 0;
+
+  --typo-data-table-bold-size: 14px;
+  --typo-data-table-bold-leading: 20px;
+  --typo-data-table-bold-weight: 700;
+  --typo-data-table-bold-tracking: 0;
+
+  --typo-data-vital-size: 18px;
+  --typo-data-vital-leading: 25px;
+  --typo-data-vital-weight: 700;
+  --typo-data-vital-tracking: 0;
 
   /* Spacing — 2px grid, 5-step scale */
   --spacing-0: 0px; --spacing-2: 4px; --spacing-4: 8px;
@@ -109,6 +141,52 @@
   --badge-subtle-red-bg: #450A0A; --badge-subtle-red-text: #F87171;
   --badge-subtle-yellow-bg: #422006; --badge-subtle-yellow-text: #FACC15;
   --badge-subtle-gray-bg: #334155; --badge-subtle-gray-text: #94A3B8;
+}
+
+/* ─── Typography v1.1 Utility Classes ─── */
+
+/* Body Dense — 한국어 고밀도 본문 */
+.text-body1-dense {
+  font-family: var(--font-family-base);
+  font-size: var(--typo-body1-dense-size);
+  line-height: var(--typo-body1-dense-leading);
+  font-weight: var(--typo-body1-dense-weight);
+  letter-spacing: var(--typo-body1-dense-tracking);
+}
+
+.text-body1-dense-medium {
+  font-family: var(--font-family-base);
+  font-size: var(--typo-body1-dense-medium-size);
+  line-height: var(--typo-body1-dense-medium-leading);
+  font-weight: var(--typo-body1-dense-medium-weight);
+  letter-spacing: var(--typo-body1-dense-medium-tracking);
+}
+
+/* Data — 모두 tabular-nums 기본 적용 */
+.text-data-table,
+.text-data-table-bold,
+.text-data-vital {
+  font-family: var(--font-family-base);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+.text-data-table {
+  font-size: var(--typo-data-table-size);
+  line-height: var(--typo-data-table-leading);
+  font-weight: var(--typo-data-table-weight);
+}
+
+.text-data-table-bold {
+  font-size: var(--typo-data-table-bold-size);
+  line-height: var(--typo-data-table-bold-leading);
+  font-weight: var(--typo-data-table-bold-weight);
+}
+
+.text-data-vital {
+  font-size: var(--typo-data-vital-size);
+  line-height: var(--typo-data-vital-leading);
+  font-weight: var(--typo-data-vital-weight);
 }
 
 /* ─── Global Reset ─── */

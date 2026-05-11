@@ -377,7 +377,7 @@
 | Badge (subtle) | 알러지, 만성질환 | color: red |
 | Badge (info) | 보험, 혈액형, 기본정보 | 둥근 네모 |
 | Card | 카드 모듈 래퍼 | title, icon, footer, actions |
-| Table | 처방 내역, 바이탈 | 가로선만, mono 수치 |
+| Table | 처방 내역, 바이탈 | 가로선만, 수치는 tabular-nums |
 | Modal | 처방 확인, DUR 경고, 미저장 경고 | size: medium, variant: default/danger |
 | Toast | 저장 완료, 전송 완료 | success/error |
 | Icon | 카드 헤더, 버튼, 히스토리 행 | 47종 SVG |

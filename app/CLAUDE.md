@@ -69,9 +69,9 @@ app/
 ### 타이포그래피
 
 ```
-Font: 'Pretendard', sans-serif
-Mono: 'JetBrains Mono', monospace
+Font: 'Pretendard', sans-serif (모든 텍스트 — 국문/영문/코드/수치 공통)
 Weight: 400(Regular) / 500(Medium) / 600(SemiBold) / 700(Bold)
+수치 폭 고정: font-variant-numeric: tabular-nums
 ```
 
 ### 스페이싱 (4px 기반)
@@ -175,7 +175,7 @@ States: hover(shadow-md) / focused(border:blue-500) / minimized(header만) / max
 디자인: **가로선만** (세로선 없음), width: 100%, Radius: 12px
 Header: bg:gray-50, font:12px/600/gray-700, border-bottom: 1px
 Row: padding:10px 12px, hover:gray-50, selected:blue/0.08
-수치: font-family: mono, text-align: right
+수치: font-variant-numeric: tabular-nums, text-align: right
 상태행: emergency(red/0.06), warning(yellow/0.04)
 
 ### Modal
@@ -254,6 +254,6 @@ StatusBar: 접속 의사 + 대기 수 + 저장 시간
 - EMR 모듈은 `src/components/modules/` 에 배치
 - 아이콘은 `<Icon name="xxx" size={n} />` 형태로 사용
 - 테이블은 가로선만, 세로선 없음
-- 숫자/코드는 mono 폰트
+- 숫자/코드는 Pretendard + `font-variant-numeric: tabular-nums`로 폭 고정
 - 뱃지 variant: solid(강조) / subtle(보조)
 - Dark 모드: data-theme="dark" 속성으로 전환

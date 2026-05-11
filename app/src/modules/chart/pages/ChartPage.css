@@ -138,7 +138,7 @@
 .thread-card:hover { background: var(--color-bg-card-hover); }
 .thread-card.current { border-color: #3B82F6; background: rgba(59,130,246,0.04); }
 .thread-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-.thread-date { font-size: 12px; font-weight: 700; font-family: var(--font-family-mono); }
+.thread-date { font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .thread-body { display: flex; flex-direction: column; gap: 2px; }
 .thread-row { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--color-text-secondary); }
 .tl { font-size: 9px; font-weight: 600; color: var(--color-text-tertiary); min-width: 24px; }
@@ -160,7 +160,7 @@
 .rx-table td { padding: 5px 6px; border-bottom: 1px solid var(--color-border-default); }
 .rx-table .c { text-align: center; }
 .rx-table .fw { font-weight: 500; }
-.rx-table .mono { font-family: var(--font-family-mono); }
+.rx-table .mono { font-variant-numeric: tabular-nums; }
 
 .text-btn {
   display: inline-flex; align-items: center; gap: 4px; border: none; background: transparent;

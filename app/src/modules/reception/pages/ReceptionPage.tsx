@@ -57,9 +57,9 @@ export default function ReceptionPage() {
                     {searchResults.map(p => (
                       <tr key={p.id} className={selectedPatient?.id === p.id ? 'row-active' : ''} style={{ cursor: 'pointer' }} onClick={() => setSelectedPatient(p)}>
                         <td className="fw">{p.name}</td>
-                        <td className="mono">{p.chartNo}</td>
-                        <td>{p.birth}</td>
-                        <td>{p.lastVisit}</td>
+                        <td className="text-data-table">{p.chartNo}</td>
+                        <td className="text-data-table">{p.birth}</td>
+                        <td className="text-data-table">{p.lastVisit}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -157,8 +157,8 @@ export default function ReceptionPage() {
                   <td>{w.dept}</td>
                   <td>{w.doctor}</td>
                   <td className="c"><Badge variant="solid" color={statusConfig[w.status].color} size="xsmall">{statusConfig[w.status].label}</Badge></td>
-                  <td className="c mono">{w.time}</td>
-                  <td className="c mono">{w.waitMin > 0 ? `${w.waitMin}분` : '-'}</td>
+                  <td className="c text-data-table">{w.time}</td>
+                  <td className="c text-data-table">{w.waitMin > 0 ? `${w.waitMin}분` : '-'}</td>
                 </tr>
               ))}
             </tbody>
