@@ -29,9 +29,9 @@ const states = [
 ]
 
 const sizes = [
-  { key: 'lg', label: 'Large', height: 48 },
-  { key: 'md', label: 'Medium', height: 40 },
-  { key: 'sm', label: 'Small', height: 32 },
+  { key: 'lg', label: 'Large', height: 40 },
+  { key: 'md', label: 'Medium', height: 32 },
+  { key: 'sm', label: 'Small', height: 28 },
   { key: 'xs', label: 'xSmall', height: 20 },
 ]
 </script>
@@ -360,15 +360,19 @@ const sizes = [
 }
 @keyframes bs-spin { to { transform: rotate(360deg); } }
 
-/* === Sizes === */
-.bs-size-lg { height: 48px; padding: 0 20px; font-size: 14px; }
-.bs-size-md { height: 40px; padding: 0 16px; font-size: 13px; }
-.bs-size-sm { height: 32px; padding: 0 12px; font-size: 12px; border-radius: 5px; }
+/* === Sizes (v1.2 — 운영 EMR 기준) === */
+.bs-size-lg { height: 40px; padding: 0 18px; font-size: 14px; gap: 8px; }
+.bs-size-md { height: 32px; padding: 0 14px; font-size: 13px; gap: 6px; }
+.bs-size-sm { height: 28px; padding: 0 10px; font-size: 12px; border-radius: 5px; gap: 5px; }
 .bs-size-xs { height: 20px; padding: 0 8px; font-size: 11px; border-radius: 4px; gap: 4px; }
-.bs-size-lg.bs-state-only-icon { width: 48px; padding: 0; }
-.bs-size-md.bs-state-only-icon { width: 40px; padding: 0; }
-.bs-size-sm.bs-state-only-icon { width: 32px; padding: 0; }
+.bs-size-lg.bs-state-only-icon { width: 40px; padding: 0; }
+.bs-size-md.bs-state-only-icon { width: 32px; padding: 0; }
+.bs-size-sm.bs-state-only-icon { width: 28px; padding: 0; }
 .bs-size-xs.bs-state-only-icon { width: 20px; padding: 0; }
+
+/* Primary blue 버튼 안의 SVG 아이콘은 white로 강제 (light/dark 모두) */
+.bs-primary .svg-icon { filter: brightness(0) invert(1) !important; }
+.bs-primary .svg-icon-masked { background-color: #FFFFFF !important; }
 
 /* Variant overview row */
 .bs-variant-row {
@@ -502,16 +506,22 @@ const sizes = [
 .bs-popover {
   position: absolute;
   top: calc(100% + 6px);
-  right: 0;
+  left: 0;                  /* 좌측 anchor 기준 오른쪽으로 펼침 — 카드 영역 안쪽 유지 */
   min-width: 220px;
+  max-width: 260px;
   background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   padding: 4px;
-  z-index: 10;
+  z-index: 20;              /* 옆 카드/컨텐츠 위로 확실히 */
   animation: bs-popover-in 0.15s ease-out;
 }
+
+/* Popover anchor가 absolute 자식을 가져도 옆 카드를 가리지 않도록 grid 자체에 stacking context 정리 */
+.bs-popover-grid { position: relative; }
+.bs-popover-card { position: relative; }
+.bs-popover-card:has(.bs-popover) { z-index: 30; }
 @keyframes bs-popover-in {
   from { opacity: 0; transform: translateY(-4px); }
   to { opacity: 1; transform: translateY(0); }

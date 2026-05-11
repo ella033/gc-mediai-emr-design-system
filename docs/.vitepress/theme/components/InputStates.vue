@@ -168,39 +168,40 @@ const searchVal = ref('')
 .dark .inp-label-error { color: var(--input-label-error-color, #F87171); }
 .inp-label-disabled { color: var(--input-label-disabled-color, #CBD5E1); }
 
+/* v1.4 — height 28px 기본 (md). inline-flex + box-sizing으로 명세 정확 보장 */
 .inp-wrap {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  border-radius: var(--input-radius, 8px);
-  overflow: hidden;
-  transition: var(--input-transition, border-color 0.15s, box-shadow 0.15s);
+  height: 28px;                         /* md 기본 */
+  padding: 0 10px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background: var(--input-bg, #FFFFFF);
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 .inp-wrap.default {
   border: 1px solid var(--input-border, #E2E8F0);
-  background: var(--input-bg, #FFFFFF);
 }
 
 .inp-wrap.hover {
   border: 1px solid var(--input-border-hover, #CBD5E1);
-  background: var(--input-bg-hover, #FFFFFF);
 }
 
 .inp-wrap.focus {
-  border: 2px solid var(--input-border-focus, #3B82F6);
-  background: var(--input-bg-focus, #FFFFFF);
-  box-shadow: var(--input-focus-ring, 0 0 0 3px rgba(59, 130, 246, 0.15));
+  border: 1.5px solid var(--input-border-focus, #3B82F6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+  padding: 0 9.5px;                     /* border 두께 보정 */
 }
 
 .inp-wrap.filled {
   border: 1px solid var(--input-border, #E2E8F0);
-  background: var(--input-bg, #FFFFFF);
 }
 
 .inp-wrap.error-state {
-  border: 2px solid var(--input-border-error, #EF4444);
-  background: var(--input-bg-error, #FFFFFF);
-  box-shadow: var(--input-error-ring, 0 0 0 3px rgba(239, 68, 68, 0.1));
+  border: 1.5px solid var(--input-border-error, #EF4444);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.10);
+  padding: 0 9.5px;
 }
 
 .inp-wrap.disabled-state {
@@ -211,20 +212,22 @@ const searchVal = ref('')
 }
 
 .inp-wrap.readonly-state {
-  border: 1px solid var(--input-border-readonly, transparent);
+  border: 1px solid transparent;
   background: var(--vp-c-bg-soft);
 }
 
 .inp-wrap.inp-with-icon {
   position: relative;
+  gap: 6px;
 }
 
 .inp {
   width: 100%;
-  padding: 8px 10px;
+  padding: 0;
   border: none;
   outline: none;
   font-size: 13px;
+  line-height: 1;
   background: transparent;
   color: var(--vp-c-text-1);
   font-family: inherit;
@@ -236,16 +239,17 @@ const searchVal = ref('')
 .inp-padded { padding-left: 4px; }
 
 .inp-icon {
-  padding-left: 10px;
-  font-size: 14px;
+  font-size: 13px;
   flex-shrink: 0;
+  color: var(--vp-c-text-3);
+  display: inline-flex;
+  align-items: center;
 }
 
 .inp-cursor {
-  width: 2px;
-  height: 18px;
+  width: 1.5px;
+  height: 14px;
   background: #3B82F6;
-  margin-right: 10px;
   flex-shrink: 0;
   animation: blink 1s infinite;
 }

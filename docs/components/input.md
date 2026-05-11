@@ -56,15 +56,20 @@ import { Input } from '@cloud-emr/design-system';
 
 ---
 
-## Size 토큰
+## Size 토큰 🆕 v1.4
+
+EMR 정보 밀도(한 화면 input 10~20개)에 맞춰 전체 사이즈 한 단계씩 축소. 운영 EMR 디자인에서 실제 사용되는 높이입니다.
 
 | Size | 토큰 (Height) | 토큰 (Padding) | 토큰 (Font Size) | 용도 |
 |------|--------------|----------------|-----------------|------|
-| `small` | `--input-sm-height` 32px | `--input-sm-padding` 6px 10px | `--input-sm-font-size` 13px | 테이블 내 인라인 편집 |
-| `medium` | `--input-md-height` 40px | `--input-md-padding` 10px 12px | `--input-md-font-size` 14px | 기본 폼 입력 |
-| `large` | `--input-lg-height` 48px | `--input-lg-padding` 12px 14px | `--input-lg-font-size` 16px | 검색 필드, 주요 입력 |
+| `xs` 🆕 | `--input-xs-height` **20px** | `--input-xs-padding` 0 8px | `--input-xs-font-size` 11px | Data Grid 행 인라인 편집 (용량/일수) |
+| `sm` | `--input-sm-height` **24px** | `--input-sm-padding` 0 8px | `--input-sm-font-size` 12px | 보조 입력, 좁은 패널 |
+| `md` (기본) | `--input-md-height` **28px** | `--input-md-padding` 0 10px | `--input-md-font-size` 13px | **기본 폼 입력 — 가장 빈번** |
+| `lg` | `--input-lg-height` **32px** | `--input-lg-padding` 0 12px | `--input-lg-font-size` 14px | 검색 필드, 모달 메인 입력 |
 
-공통: `--input-radius: var(--radius-md)` / `--input-transition: border-color 0.15s, box-shadow 0.15s`
+> EMR 한 화면에 input 10~20개가 들어가는 고밀도 폼이 핵심이라 `md` 28px이 기본. 이전 32/40/48px은 EMR 화면에서 비현실적.
+
+공통: `--input-radius: var(--radius-md)` (6px) / `--input-transition: border-color 0.15s, box-shadow 0.15s` / `--input-line-height: 1`
 
 ---
 

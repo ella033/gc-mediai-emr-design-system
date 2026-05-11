@@ -183,21 +183,40 @@ const multiSelected = ref(['J06.9', 'I10'])
 .sel-card-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--vp-c-text-3); letter-spacing: 0.05em; }
 .sel-card-desc { font-size: 12px; color: var(--vp-c-text-2); }
 
+/* v1.4 — Input과 동일한 height 28px 시스템 (md 기본). inline-flex + box-sizing */
 .sel-input-shell {
-  display: flex; align-items: center; gap: 6px;
-  padding: 8px 12px; min-height: 36px;
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 28px;                          /* md 기본, Input과 정확히 동일 */
+  padding: 0 10px;
+  box-sizing: border-box;
   border: 1px solid var(--vp-c-divider); border-radius: 6px;
-  background: var(--vp-c-bg); font-size: 13px;
-  flex-wrap: wrap;
+  background: var(--vp-c-bg);
+  font-size: 13px; line-height: 1;
+  white-space: nowrap;
 }
-.sel-input-shell.hover { border-color: var(--vp-c-text-3); }
-.sel-input-shell.focus { border-color: #3B82F6; box-shadow: 0 0 0 3px rgba(59,130,246,0.15); }
-.sel-input-shell.error { border-color: #EF4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.1); }
-.sel-input-shell.disabled { background: var(--vp-c-bg-soft); color: var(--vp-c-text-3); cursor: not-allowed; }
+/* multiple variant — chip이 들어 있으면 height 가변, min-height만 보장 */
+.sel-input-shell:has(.sel-chip) {
+  height: auto; min-height: 28px;
+  flex-wrap: wrap;
+  padding: 3px 10px;
+}
 
-.sel-icon { font-size: 13px; }
-.sel-text { flex: 1; color: var(--vp-c-text-1); }
-.sel-text-placeholder { flex: 1; color: var(--vp-c-text-3); font-size: 13px; }
+.sel-input-shell.hover { border-color: var(--vp-c-text-3); }
+.sel-input-shell.focus {
+  border: 1.5px solid #3B82F6;
+  padding: 0 9.5px;                      /* border 두께 보정 */
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+}
+.sel-input-shell.error {
+  border: 1.5px solid #EF4444;
+  padding: 0 9.5px;
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.10);
+}
+.sel-input-shell.disabled { background: var(--vp-c-bg-soft); color: var(--vp-c-text-3); cursor: not-allowed; opacity: 0.6; }
+
+.sel-icon { font-size: 13px; flex-shrink: 0; display: inline-flex; align-items: center; }
+.sel-text { flex: 1; color: var(--vp-c-text-1); overflow: hidden; text-overflow: ellipsis; }
+.sel-text-placeholder { flex: 1; color: var(--vp-c-text-3); font-size: 13px; overflow: hidden; text-overflow: ellipsis; }
 .sel-caret-up { transform: rotate(180deg); }
 
 .sel-chip {

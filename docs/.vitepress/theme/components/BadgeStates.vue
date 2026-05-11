@@ -1,6 +1,7 @@
 <script setup>
 const colors = ['blue', 'green', 'red', 'yellow', 'teal', 'gray']
-const sizes = ['xsmall', 'small', 'medium', 'large']
+// v1.2 — 3종 사이즈로 정리 (16 / 20 / 24px), EMR 정보 밀도에 맞춤
+const sizes = ['small', 'medium', 'large']
 
 const colorMap = {
   blue: { solid: { bg: '#3B82F6', text: '#fff' }, subtle: { bg: '#DBEAFE', text: '#1D4ED8' } },
@@ -11,11 +12,11 @@ const colorMap = {
   gray: { solid: { bg: '#64748B', text: '#fff' }, subtle: { bg: '#F1F5F9', text: '#475569' } },
 }
 
+// v1.3.1 — vertical padding 추가 (1/2/4px) + line-height 조정으로 텍스트 답답함 해소
 const sizeMap = {
-  xsmall: { fontSize: '11px', padding: '1px 6px' },
-  small: { fontSize: '12px', padding: '2px 8px' },
-  medium: { fontSize: '14px', padding: '4px 10px' },
-  large: { fontSize: '16px', padding: '6px 12px' },
+  small:  { height: '16px', fontSize: '11px', padding: '1px 6px' },
+  medium: { height: '20px', fontSize: '12px', padding: '2px 8px' },
+  large:  { height: '24px', fontSize: '13px', padding: '4px 10px' },
 }
 
 const emrExamples = [
@@ -30,6 +31,9 @@ const emrExamples = [
   { label: '처방완료', variant: 'subtle', color: 'blue' },
   { label: '조제중', variant: 'subtle', color: 'teal' },
 ]
+
+// 기본 시각화는 medium (20px)
+const defaultSize = sizeMap.medium
 </script>
 
 <template>
@@ -43,17 +47,44 @@ const emrExamples = [
           :style="{
             background: colorMap[c].solid.bg,
             color: colorMap[c].solid.text,
+            height: defaultSize.height,
+            fontSize: defaultSize.fontSize,
+            padding: defaultSize.padding,
           }"
         >{{ c }}</span>
         <span class="badge-color-name">{{ c }}</span>
       </div>
     </div>
 
-    <!-- Info variant (둥근 네모) -->
+    <!-- Info variant (둥근 네모) — 동일 size matrix 적용 -->
     <h4 class="section-title">Info Variant (정보 표현 — 둥근 네모)</h4>
-    <div class="badge-row">
-      <div v-for="item in ['건강보험', 'A+ 형', '고혈압', '당뇨', '페니실린 알러지', '내과']" :key="'info-'+item" class="badge-col">
-        <span class="badge badge-info">{{ item }}</span>
+    <div class="badge-row align-info">
+      <div v-for="s in sizes" :key="'info-size-'+s" class="badge-col">
+        <span
+          class="badge badge-info"
+          :style="{
+            height: sizeMap[s].height,
+            fontSize: sizeMap[s].fontSize,
+            padding: sizeMap[s].padding,
+          }"
+        >건강보험</span>
+        <span class="badge-color-name">{{ s }}</span>
+        <span class="badge-size-info">{{ sizeMap[s].height }}</span>
+      </div>
+      <div class="info-examples-divider">|</div>
+      <div
+        v-for="item in ['A+ 형', '고혈압', '당뇨', '페니실린 알러지', '내과']"
+        :key="'info-'+item"
+        class="info-example-item"
+      >
+        <span
+          class="badge badge-info"
+          :style="{
+            height: defaultSize.height,
+            fontSize: defaultSize.fontSize,
+            padding: defaultSize.padding,
+          }"
+        >{{ item }}</span>
       </div>
     </div>
 
@@ -66,13 +97,16 @@ const emrExamples = [
           :style="{
             background: colorMap[c].subtle.bg,
             color: colorMap[c].subtle.text,
+            height: defaultSize.height,
+            fontSize: defaultSize.fontSize,
+            padding: defaultSize.padding,
           }"
         >{{ c }}</span>
         <span class="badge-color-name">{{ c }}</span>
       </div>
     </div>
 
-    <!-- Sizes -->
+    <!-- Sizes — 3종 (16/20/24) -->
     <h4 class="section-title">Sizes</h4>
     <div class="badge-row align-center">
       <div v-for="s in sizes" :key="s" class="badge-col">
@@ -81,18 +115,19 @@ const emrExamples = [
           :style="{
             background: '#3B82F6',
             color: '#fff',
+            height: sizeMap[s].height,
             fontSize: sizeMap[s].fontSize,
             padding: sizeMap[s].padding,
           }"
         >진료중</span>
         <span class="badge-color-name">{{ s }}</span>
-        <span class="badge-size-info">{{ sizeMap[s].fontSize }} / {{ sizeMap[s].padding }}</span>
+        <span class="badge-size-info">{{ sizeMap[s].height }} / {{ sizeMap[s].fontSize }}</span>
       </div>
     </div>
 
     <!-- EMR Examples -->
     <h4 class="section-title">EMR 활용 예시</h4>
-    <div class="badge-row">
+    <div class="badge-row align-center">
       <span
         v-for="ex in emrExamples"
         :key="ex.label"
@@ -100,8 +135,9 @@ const emrExamples = [
         :style="{
           background: colorMap[ex.color][ex.variant].bg,
           color: colorMap[ex.color][ex.variant].text,
-          fontSize: '12px',
-          padding: '2px 8px',
+          height: defaultSize.height,
+          fontSize: defaultSize.fontSize,
+          padding: defaultSize.padding,
         }"
       >{{ ex.label }}</span>
     </div>
@@ -132,6 +168,8 @@ const emrExamples = [
   background: var(--vp-c-bg);
 }
 .badge-row.align-center { align-items: center; }
+/* Info variant row — 좌측 size 데모(라벨 포함)와 우측 단일 배지의 위쪽 라인 정렬 */
+.badge-row.align-info { align-items: flex-start; }
 
 .badge-col {
   display: flex;
@@ -140,32 +178,47 @@ const emrExamples = [
   gap: 4px;
 }
 
+/* Info 활용 예시 항목 — 라벨 없이 배지만, badge-col과 같은 위치에서 시작 */
+.info-example-item {
+  display: flex;
+  align-items: center;
+  /* badge-col의 첫 줄(배지)과 정확히 같은 vertical line */
+}
+
+/* v1.3.1 — height 명시 + vertical padding 추가 + line-height 1.2로 텍스트 여백 확보 */
 .badge {
-  display: inline-block;
-  padding: 2px 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 9999px;
-  font-size: 12px;
   font-weight: 500;
   white-space: nowrap;
+  box-sizing: border-box;
+  line-height: 1.2;
 }
+
 .badge-info {
   border-radius: 6px;
   background: var(--vp-c-bg-soft);
   color: var(--vp-c-text-1);
   border: 1px solid var(--vp-c-divider);
-  padding: 3px 10px;
-  font-size: 12px;
+}
+
+.info-examples-divider {
+  color: var(--vp-c-text-3);
+  align-self: center;
+  margin: 0 4px;
 }
 
 .badge-color-name {
   font-size: 10px;
   color: var(--vp-c-text-3);
-  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
 }
 
 .badge-size-info {
   font-size: 9px;
   color: var(--vp-c-text-3);
-  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
 }
 </style>
