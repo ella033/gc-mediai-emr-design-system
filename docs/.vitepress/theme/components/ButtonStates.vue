@@ -7,6 +7,12 @@ const popoverOpen2 = ref(false)
 const togglePopover = () => { popoverOpen.value = !popoverOpen.value }
 const togglePopover2 = () => { popoverOpen2.value = !popoverOpen2.value }
 
+// Icon slot toggles (v1.5 — 디자이너가 컴포넌트에서 left/right 아이콘 영역을 on/off로 미리보기)
+const showLeftIcon = ref(true)
+const showRightIcon = ref(false)
+// 기본 placeholder 아이콘은 lucide 'squircle-dashed' — 디자이너가 실제 작업 시 다른 아이콘으로 swap
+const placeholderIcon = 'squircle-dashed'
+
 const variants = [
   { key: 'primary', label: 'Primary' },
   { key: 'neutral', label: 'Neutral' },
@@ -116,6 +122,92 @@ const sizes = [
           <button class="bs-btn bs-secondary">자세히<SvgIcon name="chevron-right" :size="14" /></button>
           <button class="bs-btn bs-link">바로가기 <SvgIcon name="link" :size="12" /></button>
         </div>
+      </div>
+    </div>
+
+    <!-- Icon Slot — left/right toggle (v1.5) -->
+    <h4 class="section-title">Icon Slot — Toggle</h4>
+    <div class="bs-icon-toggle-card">
+      <div class="bs-icon-toggle-controls">
+        <label class="bs-toggle-label">
+          <input type="checkbox" v-model="showLeftIcon" />
+          <span>Left Icon</span>
+        </label>
+        <label class="bs-toggle-label">
+          <input type="checkbox" v-model="showRightIcon" />
+          <span>Right Icon</span>
+        </label>
+        <span class="bs-icon-toggle-hint">
+          Placeholder: <code>{{ placeholderIcon }}</code> · 실제 작업에선 컴포넌트 property로 swap
+        </span>
+      </div>
+
+      <div class="bs-icon-demo-grid">
+        <!-- 5 variants × medium size, 토글에 따라 아이콘 표시 -->
+        <div class="bs-icon-demo-row">
+          <span class="bs-icon-demo-meta">primary</span>
+          <button class="bs-btn bs-primary bs-size-md">
+            <SvgIcon v-if="showLeftIcon" :name="placeholderIcon" :size="14" />
+            처방 전송
+            <SvgIcon v-if="showRightIcon" :name="placeholderIcon" :size="14" />
+          </button>
+        </div>
+        <div class="bs-icon-demo-row">
+          <span class="bs-icon-demo-meta">secondary</span>
+          <button class="bs-btn bs-secondary bs-size-md">
+            <SvgIcon v-if="showLeftIcon" :name="placeholderIcon" :size="14" />
+            저장
+            <SvgIcon v-if="showRightIcon" :name="placeholderIcon" :size="14" />
+          </button>
+        </div>
+        <div class="bs-icon-demo-row">
+          <span class="bs-icon-demo-meta">tertiary</span>
+          <button class="bs-btn bs-tertiary bs-size-md">
+            <SvgIcon v-if="showLeftIcon" :name="placeholderIcon" :size="14" />
+            취소
+            <SvgIcon v-if="showRightIcon" :name="placeholderIcon" :size="14" />
+          </button>
+        </div>
+        <div class="bs-icon-demo-row">
+          <span class="bs-icon-demo-meta">danger</span>
+          <button class="bs-btn bs-danger bs-size-md">
+            <SvgIcon v-if="showLeftIcon" :name="placeholderIcon" :size="14" />
+            삭제
+            <SvgIcon v-if="showRightIcon" :name="placeholderIcon" :size="14" />
+          </button>
+        </div>
+        <div class="bs-icon-demo-row">
+          <span class="bs-icon-demo-meta">link</span>
+          <button class="bs-btn bs-link bs-size-md">
+            <SvgIcon v-if="showLeftIcon" :name="placeholderIcon" :size="14" />
+            자세히 보기
+            <SvgIcon v-if="showRightIcon" :name="placeholderIcon" :size="14" />
+          </button>
+        </div>
+      </div>
+
+      <div class="bs-icon-sizes-row">
+        <span class="bs-icon-demo-meta">사이즈별 비례</span>
+        <button class="bs-btn bs-primary bs-size-lg">
+          <SvgIcon v-if="showLeftIcon" :name="placeholderIcon" :size="16" />
+          Large
+          <SvgIcon v-if="showRightIcon" :name="placeholderIcon" :size="16" />
+        </button>
+        <button class="bs-btn bs-primary bs-size-md">
+          <SvgIcon v-if="showLeftIcon" :name="placeholderIcon" :size="14" />
+          Medium
+          <SvgIcon v-if="showRightIcon" :name="placeholderIcon" :size="14" />
+        </button>
+        <button class="bs-btn bs-primary bs-size-sm">
+          <SvgIcon v-if="showLeftIcon" :name="placeholderIcon" :size="12" />
+          Small
+          <SvgIcon v-if="showRightIcon" :name="placeholderIcon" :size="12" />
+        </button>
+        <button class="bs-btn bs-primary bs-size-xs">
+          <SvgIcon v-if="showLeftIcon" :name="placeholderIcon" :size="10" />
+          xS
+          <SvgIcon v-if="showRightIcon" :name="placeholderIcon" :size="10" />
+        </button>
       </div>
     </div>
 
@@ -519,6 +611,51 @@ const sizes = [
 }
 
 /* Popover anchor가 absolute 자식을 가져도 옆 카드를 가리지 않도록 grid 자체에 stacking context 정리 */
+/* === Icon Slot — Toggle (v1.5) === */
+.bs-icon-toggle-card {
+  padding: 20px 24px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg);
+  display: flex; flex-direction: column; gap: 20px;
+}
+.bs-icon-toggle-controls {
+  display: flex; align-items: center; gap: 16px;
+  padding-bottom: 16px; border-bottom: 1px solid var(--vp-c-divider);
+}
+.bs-toggle-label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--vp-c-text-1); cursor: pointer;
+  user-select: none;
+}
+.bs-toggle-label input[type="checkbox"] {
+  width: 16px; height: 16px; accent-color: #3B82F6; cursor: pointer;
+}
+.bs-icon-toggle-hint {
+  margin-left: auto;
+  font-size: 11px; color: var(--vp-c-text-3);
+}
+.bs-icon-toggle-hint code {
+  font-family: var(--vp-font-family-base); font-size: 11px;
+  padding: 1px 6px; border-radius: 3px;
+  background: var(--vp-c-bg-soft); color: var(--vp-c-text-1);
+}
+.bs-icon-demo-grid {
+  display: flex; flex-direction: column; gap: 12px;
+}
+.bs-icon-demo-row {
+  display: flex; align-items: center; gap: 16px;
+}
+.bs-icon-demo-meta {
+  font-size: 11px; color: var(--vp-c-text-3);
+  min-width: 90px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.bs-icon-sizes-row {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding-top: 16px; border-top: 1px solid var(--vp-c-divider);
+}
+
 .bs-popover-grid { position: relative; }
 .bs-popover-card { position: relative; }
 .bs-popover-card:has(.bs-popover) { z-index: 30; }
